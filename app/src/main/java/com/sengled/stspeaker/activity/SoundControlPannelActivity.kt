@@ -97,7 +97,7 @@ class SoundControlPannelActivity : Activity() {
         }
         llLight.setOnClickListener {
             val intent = Intent(this, LightControlPannelActivity::class.java)
-            intent.flags = 131072 // FLAG_ACTIVITY_SINGLE_TOP, as in the original
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
             startActivity(intent)
             finish()
         }
@@ -135,6 +135,10 @@ class SoundControlPannelActivity : Activity() {
                     }
                 }, 200)
                 volumeDial.turnOn()
+                val vol = speakerSer.getSoundVolume1()
+                if (vol > 0) {
+                    volumeDial.setProgress(vol.toFloat())
+                }
             }
         }
     }
@@ -152,6 +156,10 @@ class SoundControlPannelActivity : Activity() {
             2 -> logoIcon.setImageResource(R.drawable.icon_pulse_link)
             else -> logoIcon.setImageResource(R.drawable.icon_pulse)
         }
+        val currentVol = speakerSer.getSoundVolume1()
+        if (currentVol > 0) {
+            volumeDial.setProgress(currentVol.toFloat())
+        }
         if (speakerSer.getSoundMute() == 1) {
             if (!volumeDial.isOff()) volumeDial.turnOff()
         } else {
@@ -161,13 +169,19 @@ class SoundControlPannelActivity : Activity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        volumeDial.setProgress(speakerSer.getSoundVolume1().toFloat())
+        val currentVol = speakerSer.getSoundVolume1()
+        if (currentVol > 0) {
+            volumeDial.setProgress(currentVol.toFloat())
+        }
         refreshData()
     }
 
     override fun onResume() {
         super.onResume()
-        volumeDial.setProgress(speakerSer.getSoundVolume1().toFloat())
+        val currentVol = speakerSer.getSoundVolume1()
+        if (currentVol > 0) {
+            volumeDial.setProgress(currentVol.toFloat())
+        }
         refreshData()
     }
 

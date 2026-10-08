@@ -570,8 +570,10 @@ class CircleView @JvmOverloads constructor(
             mIsTopClick = false
             mIsBottomClick = false
             mArrowEnable = false
-            mOffProgress = mProgress
-            mOffCurrentAngle = mCurrentAngle
+            if (mProgress > 0f) {
+                mOffProgress = mProgress
+                mOffCurrentAngle = mCurrentAngle
+            }
             mProgress = 0.0f
             mCurrentAngle = 0.0f
             invalidate()
@@ -584,8 +586,13 @@ class CircleView @JvmOverloads constructor(
             isAudiobox = false
             mArrowEnable = true
             mIsOff = false
-            mProgress = mOffProgress
-            mCurrentAngle = mOffCurrentAngle
+            if (mOffProgress > 0f) {
+                mProgress = mOffProgress
+                mCurrentAngle = mOffCurrentAngle
+            } else if (mProgress == 0f) {
+                mProgress = 70.0f
+                mCurrentAngle = 70.0f / 100.0f * mRangAngle
+            }
             mOffProgress = 0.0f
             mOffCurrentAngle = 0.0f
             invalidate()
@@ -614,8 +621,15 @@ class CircleView @JvmOverloads constructor(
     fun isOff(): Boolean = mIsOff
 
     fun setProgress(progress: Float) {
-        mProgress = progress
-        mCurrentAngle = if (mProgress == 100.0f) mHundredPercent else progress / 100.0f * mRangAngle
+        if (mIsOff) {
+            if (progress > 0f) {
+                mOffProgress = progress
+                mOffCurrentAngle = if (progress == 100.0f) mHundredPercent else progress / 100.0f * mRangAngle
+            }
+        } else {
+            mProgress = progress
+            mCurrentAngle = if (mProgress == 100.0f) mHundredPercent else progress / 100.0f * mRangAngle
+        }
         invalidate()
     }
 

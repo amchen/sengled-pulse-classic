@@ -41,6 +41,20 @@ class PulseAudio(private val context: Context) {
         )
     }
 
+    /** Converts 0..100 percentage scale to/from stream music volume */
+    fun musicVolumePercent(): Int {
+        val max = maxMusicVolume()
+        if (max == 0) return 0
+        return Math.round(musicVolume() * 100.0f / max).coerceIn(0, 100)
+    }
+
+    fun setMusicVolumePercent(percent: Int) {
+        val max = maxMusicVolume()
+        if (max == 0) return
+        val targetIndex = Math.round(percent.coerceIn(0, 100) * max / 100.0f)
+        setMusicVolume(targetIndex)
+    }
+
     // ---------- A2DP status ----------
 
     /** Calls back with the name of the connected A2DP device, or null if none. */

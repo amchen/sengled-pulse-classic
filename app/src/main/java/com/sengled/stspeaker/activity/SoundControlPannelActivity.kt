@@ -1,17 +1,23 @@
 package com.sengled.stspeaker.activity
 
 import android.app.Activity
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
+import android.database.ContentObserver
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.os.Message
+import android.provider.Settings
 import android.view.View
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import com.sengled.stspeaker.R
+import com.sengled.stspeaker.audio.PulseAudio
 import com.sengled.stspeaker.service.PulseService
 import com.sengled.stspeaker.widget.CircleView
 import com.sengled.stspeaker.widget.SettingsMenuPopupWindow
@@ -43,6 +49,70 @@ class SoundControlPannelActivity : Activity() {
 
     private val speakerSer = PulseService
     private var timer: Timer? = null
+    private var isSelfVolumeChange = false
+    private lateinit var pulseAudio: PulseAudio
+    private var volumeObserver: ContentObserver? = null
+
+    private val volumeReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            if (intent.action == "android.media.VOLUME_CHANGED_ACTION") {
+                if (isSelfVolumeChange) return
+                val phonePercent = pulseAudio.musicVolumePercent()
+                val currentVol = speakerSer.getSoundVolume1()
+                if (currentVol != phonePercent) {
+                    speakerSer.setSoundVolume(PulseService.ADDR_BROADCAST, phonePercent)
+                    if (speakerSer.getSoundMute() == 0 && !volumeDial.isOff()) {
+                        volumeDial.setProgress(phonePercent.toFloat())
+                    }
+                }
+            }
+        }
+    }
+
+    private fun registerVolumeSync() {
+        try {
+            val filter = IntentFilter("android.media.VOLUME_CHANGED_ACTION")
+            ContextCompat.registerReceiver(
+                this,
+                volumeReceiver,
+                filter,
+                ContextCompat.RECEIVER_EXPORTED
+            )
+        } catch (_: Exception) {}
+
+        try {
+            val observer = object : ContentObserver(uiHandler) {
+                override fun onChange(selfChange: Boolean) {
+                    super.onChange(selfChange)
+                    if (isSelfVolumeChange) return
+                    val phonePercent = pulseAudio.musicVolumePercent()
+                    val currentVol = speakerSer.getSoundVolume1()
+                    if (currentVol != phonePercent) {
+                        speakerSer.setSoundVolume(PulseService.ADDR_BROADCAST, phonePercent)
+                        if (speakerSer.getSoundMute() == 0 && !volumeDial.isOff()) {
+                            volumeDial.setProgress(phonePercent.toFloat())
+                        }
+                    }
+                }
+            }
+            contentResolver.registerContentObserver(
+                Settings.System.CONTENT_URI,
+                true,
+                observer
+            )
+            volumeObserver = observer
+        } catch (_: Exception) {}
+    }
+
+    private fun unregisterVolumeSync() {
+        try {
+            unregisterReceiver(volumeReceiver)
+        } catch (_: Exception) {}
+        try {
+            volumeObserver?.let { contentResolver.unregisterContentObserver(it) }
+            volumeObserver = null
+        } catch (_: Exception) {}
+    }
 
     private val uiHandler = Handler(Looper.getMainLooper()) { msg ->
         when (msg.what) {
@@ -60,6 +130,7 @@ class SoundControlPannelActivity : Activity() {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_controlpannel_sound_eui)
+        pulseAudio = PulseAudio(this)
         initUi()
         volumeDial.setCircleType(CircleView.CircleType.SOUND)
         logoIcon.setImageResource(R.drawable.icon_pulse)
@@ -105,6 +176,10 @@ class SoundControlPannelActivity : Activity() {
 
     private fun setSpeakerVolume(volume: Int) {
         speakerSer.setSoundVolume(PulseService.ADDR_BROADCAST, volume)
+        isSelfVolumeChange = true
+        pulseAudio.setMusicVolumePercent(volume)
+        uiHandler.postDelayed({ isSelfVolumeChange = false }, 300)
+
         // The original un-mutes the master when the volume dial is dragged.
         if (speakerSer.getSoundMute() == 1) {
             speakerSer.setSoundMute(PulseService.ADDR_BROADCAST, 0)
@@ -169,20 +244,28 @@ class SoundControlPannelActivity : Activity() {
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        val currentVol = speakerSer.getSoundVolume1()
-        if (currentVol > 0) {
-            volumeDial.setProgress(currentVol.toFloat())
+        val phoneVol = pulseAudio.musicVolumePercent()
+        speakerSer.setSoundVolume(PulseService.ADDR_BROADCAST, phoneVol)
+        if (speakerSer.getSoundMute() == 0) {
+            volumeDial.setProgress(phoneVol.toFloat())
         }
         refreshData()
     }
 
     override fun onResume() {
         super.onResume()
-        val currentVol = speakerSer.getSoundVolume1()
-        if (currentVol > 0) {
-            volumeDial.setProgress(currentVol.toFloat())
+        registerVolumeSync()
+        val phoneVol = pulseAudio.musicVolumePercent()
+        speakerSer.setSoundVolume(PulseService.ADDR_BROADCAST, phoneVol)
+        if (speakerSer.getSoundMute() == 0) {
+            volumeDial.setProgress(phoneVol.toFloat())
         }
         refreshData()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterVolumeSync()
     }
 
     override fun onDestroy() {

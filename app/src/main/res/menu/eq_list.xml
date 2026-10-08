@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/eqnormal"
+        android:title="@string/EQ_normal"/>
+    <item
+        android:id="@+id/eqpop"
+        android:title="@string/EQ_Pop"/>
+    <item
+        android:id="@+id/eqjazz"
+        android:title="@string/EQ_Jazz"/>
+    <item
+        android:id="@+id/eqclassic"
+        android:title="@string/EQ_Classic"/>
+    <item
+        android:id="@+id/eqrock"
+        android:title="@string/EQ_Rock"/>
+    <item
+        android:id="@+id/eqmovie"
+        android:title="@string/EQ_Movie"/>
+</menu>

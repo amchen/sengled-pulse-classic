@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 获取反馈列表"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 获取未读消息数"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 获取客户消息数据列"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" 系统时钟"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="行为统计"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="webView"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="任务站"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SSH"/>
+    <com.sengled.cloud.ui.view.ThButton
+        android:id="@+id/button9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="webViewSSH"/>
+</LinearLayout>

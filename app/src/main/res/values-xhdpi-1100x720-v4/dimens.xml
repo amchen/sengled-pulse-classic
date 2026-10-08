@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="add_bulbs_btn">20sp</dimen>
+    <dimen name="dialog_text">15sp</dimen>
+    <dimen name="dialog_title">17sp</dimen>
+</resources>

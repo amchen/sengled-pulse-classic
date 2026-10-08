@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/item_content"
+        android:background="@drawable/a66_list_item_center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/lamp_icon"
+            android:background="@drawable/a66_lamp_no_selected_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.sengled.pulsea66.view.ThTextView
+            android:textColor="@color/a66_text_red"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/device_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/a66_list_item_text"/>
+    </LinearLayout>
+    <View
+        android:id="@+id/item_line"
+        android:background="@color/a66_background_plain"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"/>
+</LinearLayout>

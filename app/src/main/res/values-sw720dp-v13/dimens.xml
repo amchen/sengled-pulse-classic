@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="a66_circie_audio_size">80sp</dimen>
+    <dimen name="a66_circie_inner_margin">90dp</dimen>
+    <dimen name="a66_circie_progress_size">160sp</dimen>
+    <dimen name="a66_circie_type_size">36sp</dimen>
+    <dimen name="add_bulbs_btn">28sp</dimen>
+    <dimen name="guide_nomal">28sp</dimen>
+    <dimen name="progress_bar_width">18px</dimen>
+    <dimen name="skip_size">15sp</dimen>
+    <dimen name="a66_control_marginTop">30dp</dimen>
+    <dimen name="a66_copy_right">18sp</dimen>
+    <dimen name="a66_list_item_size">30sp</dimen>
+    <dimen name="a66_list_padding">20dp</dimen>
+    <dimen name="a66_list_version_size">28sp</dimen>
+    <dimen name="a66_normal_size">33sp</dimen>
+    <dimen name="a66_setting_size">28sp</dimen>
+    <dimen name="a66_title_size">33sp</dimen>
+    <dimen name="access_china_size">30sp</dimen>
+    <dimen name="access_icon_height">26dp</dimen>
+    <dimen name="access_icon_marginleft">20dp</dimen>
+    <dimen name="access_icon_width">30dp</dimen>
+    <dimen name="access_left_device">20dp</dimen>
+    <dimen name="access_name_icon_space">20dp</dimen>
+    <dimen name="access_selector_size">40sp</dimen>
+    <dimen name="access_selector_title_height">50dp</dimen>
+    <dimen name="access_selector_welcome_height">50dp</dimen>
+    <dimen name="circie_inner_margin">72dp</dimen>
+    <dimen name="circie_progress_size">190sp</dimen>
+    <dimen name="circie_type_size">60sp</dimen>
+    <dimen name="copyright_margin">30dp</dimen>
+    <dimen name="guide_small">15sp</dimen>
+    <dimen name="lamp_setting_margin">25dp</dimen>
+    <dimen name="tab_text_size">30sp</dimen>
+</resources>

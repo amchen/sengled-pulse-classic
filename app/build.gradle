@@ -1,0 +1,48 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+}
+
+android {
+    namespace = "com.sengled.stspeaker"
+    compileSdk = 34
+
+    defaultConfig {
+        // Distinct from the original app so both can be installed side by side.
+        applicationId = "com.sengled.stspeaker.classic"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 1
+        versionName = "4.2.1-classic"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
+dependencies {
+    implementation("androidx.core:core-ktx:1.13.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24") // align transitive 1.6.21 (dup classes vs stdlib 1.9.24)
+}
+
+// kotlin-stdlib 1.8+ merged the jdk7/jdk8 artifacts; drop the stale ones some
+// transitive deps still pull in to avoid duplicate-class errors.
+configurations.configureEach {
+    if (name.endsWith("RuntimeClasspath") || name.endsWith("CompileClasspath")) {
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"
+        exclude group: "org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"
+    }
+}

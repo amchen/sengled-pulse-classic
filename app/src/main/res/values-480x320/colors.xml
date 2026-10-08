@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="a66_light_gray">#8c929c</color>
+    <color name="circle_progress_bg_color">#c5c5c5</color>
+    <color name="circle_progress_end_color">#ea2839</color>
+    <color name="circle_progress_start_color">#f6d0d3</color>
+    <color name="progress_gray">#85817d</color>
+</resources>

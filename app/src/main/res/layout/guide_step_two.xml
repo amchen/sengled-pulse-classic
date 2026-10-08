@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:guide="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:orientation="vertical"
+        android:id="@+id/lin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.sengled.stspeaker.widget.GuideContentTextView
+            android:textSize="@dimen/guide_nomal"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/content"
+            android:paddingLeft="18dp"
+            android:paddingTop="40dp"
+            android:paddingRight="18dp"
+            android:paddingBottom="@dimen/step_two_content_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/two_content"
+            android:lineSpacingExtra="@dimen/guide_space_extra"
+            android:rotation="-8"/>
+        <com.sengled.stspeaker.widget.SkipView
+            android:layout_gravity="right"
+            android:id="@+id/guide_two_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:drawableLeft="@drawable/guide_skip"
+            android:layout_below="@+id/content"
+            android:layout_alignRight="@+id/content"
+            guide:guideType="skip"/>
+    </FrameLayout>
+    <ImageView
+        android:id="@+id/guid_two_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/guide_arr2"
+        android:layout_below="@+id/lin"
+        android:layout_alignRight="@+id/lin"/>
+</RelativeLayout>

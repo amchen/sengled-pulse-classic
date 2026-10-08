@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:text="Apply"
+        android:layout_toLeftOf="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:onClick="onSave"
+        style="?android:attr/buttonStyleSmall"/>
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:text="Cancel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="onCancle"
+        style="?android:attr/buttonStyleSmall"/>
+    <com.sengled.stspeaker.widget.ThTextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="26dp"
+        android:text="Input /modify the Speaker&apos;s Bluetooth Address:"
+        android:layout_alignParentTop="true"/>
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"/>
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="44dp"
+        android:text="Find Device By Name"
+        android:layout_below="@+id/editText1"
+        android:layout_alignLeft="@+id/editText1"/>
+</RelativeLayout>

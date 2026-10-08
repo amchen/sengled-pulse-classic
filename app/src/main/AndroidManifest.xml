@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Lets SettingPlayerActivity list installed music apps on Android 11+. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.APP_MUSIC" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/FullscreenTheme">
+
+        <activity android:name=".activity.LogoActivity"
+            android:theme="@style/FullscreenTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.MainActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SearchAndConnectActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.DevicesListActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.RetrySearchActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SengledTipsActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SettingAddDeviceActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.LightControlPannelActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SoundControlPannelActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SettingsActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SettingLampActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SettingSpeakerActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SettingPlayerActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SettingNameActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.SettingVersionActivity" android:theme="@style/FullscreenTheme" />
+        <activity android:name=".activity.AudioInputSwitchActivity" android:theme="@style/FullscreenTheme" />
+    </application>
+</manifest>

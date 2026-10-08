@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.sengled.stspeaker.widget.ThTextView
+        android:textSize="14sp"
+        android:textColor="@color/text_deep"
+        android:gravity="center_vertical"
+        android:id="@+id/tv_item_eq"
+        android:background="@drawable/eq_background1"
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:drawableLeft="@drawable/icn_normal_normal"
+        android:drawableRight="@drawable/icn_eq_normal_normal"
+        android:drawablePadding="5dp"/>
+    <ImageView
+        android:id="@+id/iv_gap1"
+        android:background="@color/background_plain"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="a66_circie_audio_size">40sp</dimen>
+    <dimen name="a66_circie_inner_margin">50dp</dimen>
+    <dimen name="a66_circie_progress_size">80sp</dimen>
+    <dimen name="a66_circie_type_size">20sp</dimen>
+    <dimen name="add_bulbs_btn">13sp</dimen>
+    <dimen name="add_guide">12sp</dimen>
+    <dimen name="guide_content">10sp</dimen>
+    <dimen name="guide_content_linespacingextra">3dp</dimen>
+    <dimen name="guide_nomal">18sp</dimen>
+    <dimen name="guide_one_content_bottom">2dp</dimen>
+    <dimen name="guide_padding">6dp</dimen>
+    <dimen name="guide_six_content_bottom">10dp</dimen>
+    <dimen name="guide_six_content_top">50dp</dimen>
+    <dimen name="guide_title">12sp</dimen>
+    <dimen name="guide_title_content_space">3dp</dimen>
+    <dimen name="menu_padding">3dp</dimen>
+    <dimen name="menu_size">12sp</dimen>
+    <dimen name="no_device_connect">14sp</dimen>
+    <dimen name="progress_bar_width">18px</dimen>
+    <dimen name="skip_padding">6dp</dimen>
+    <dimen name="skip_size">12sp</dimen>
+</resources>

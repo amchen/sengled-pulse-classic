@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.sengled.cloud.ui.view.ThButton
+        android:textSize="18dp"
+        android:gravity="center"
+        android:id="@+id/load_more"
+        android:background="#00ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载更多次"/>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="30dp"
+        android:layout_height="30dp"/>
+</LinearLayout>

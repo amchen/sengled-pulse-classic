@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="a66_brightness">BRIGHTNESS</string>
+    <string name="a66_off">Off</string>
+    <string name="a66_volume">VOLUME</string>
+</resources>

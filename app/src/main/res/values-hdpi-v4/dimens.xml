@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="add_guide">12sp</dimen>
+    <dimen name="guide_content">10sp</dimen>
+    <dimen name="guide_content_linespacingextra">3dp</dimen>
+    <dimen name="guide_padding">6dp</dimen>
+    <dimen name="guide_title">12sp</dimen>
+    <dimen name="guide_title_content_space">3dp</dimen>
+    <dimen name="menu_padding">3dp</dimen>
+    <dimen name="menu_size">15sp</dimen>
+    <dimen name="no_device_connect">14sp</dimen>
+</resources>

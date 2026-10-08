@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="placeholderImage" format="reference">
+                    </attr>
+    <attr name="placeholderImageScaleType">
+                        <enum name="none" value="-1" />
+                        <enum name="center" value="4" />
+                        <enum name="centerCrop" value="6" />
+                        <enum name="centerInside" value="5" />
+                        <enum name="fitBottomStart" value="8" />
+                        <enum name="fitCenter" value="2" />
+                        <enum name="fitEnd" value="3" />
+                        <enum name="fitStart" value="1" />
+                        <enum name="fitXY" value="0" />
+                        <enum name="focusCrop" value="7" />
+                    </attr>
+    <attr name="actualImageScaleType">
+                        <enum name="none" value="-1" />
+                        <enum name="center" value="4" />
+                        <enum name="centerCrop" value="6" />
+                        <enum name="centerInside" value="5" />
+                        <enum name="fitBottomStart" value="8" />
+                        <enum name="fitCenter" value="2" />
+                        <enum name="fitEnd" value="3" />
+                        <enum name="fitStart" value="1" />
+                        <enum name="fitXY" value="0" />
+                        <enum name="focusCrop" value="7" />
+                    </attr>
+    <attr name="roundAsCircle" format="boolean">
+                    </attr>
+    <attr name="src" format="reference">
+                    </attr>
+    <attr name="selector" format="reference">
+                    </attr>
+    <attr name="onOff" format="reference">
+                    </attr>
+    <attr name="src_off" format="reference">
+                    </attr>
+    <attr name="guideType" format="string">
+                    </attr>
+    <attr name="rotate" format="integer">
+                </attr>
+</resources>

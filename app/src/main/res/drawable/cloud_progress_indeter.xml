@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <rotate
+            android:drawable="@drawable/cloud_load_icon"
+            android:fromDegrees="1080"
+            android:toDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="50%"/>
+    </item>
+    <item>
+        <rotate
+            android:drawable="@drawable/cloud_load_icon2"
+            android:fromDegrees="0"
+            android:toDegrees="1080"
+            android:pivotX="50%"
+            android:pivotY="50%"/>
+    </item>
+</layer-list>

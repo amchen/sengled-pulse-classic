@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="channelList">
+        <item>L</item>
+        <item>R</item>
+        <item>L+R</item>
+    </array>
+    <array name="eq_array">
+        <item>Normal</item>
+        <item>Pop</item>
+        <item>Jazz</item>
+        <item>Classic</item>
+        <item>Rock</item>
+        <item>Movie</item>
+    </array>
+    <array name="soundapp_List">
+        <item>com.pandora.android</item>
+        <item>com.spotify.mobile.android.ui</item>
+        <item>tunein.player</item>
+        <item>radiotime.player</item>
+        <item>com.htc.music</item>
+        <item>com.ting.mp3.android</item>
+        <item>com.kugou.android</item>
+        <item>com.tencent.qqmusic</item>
+        <item>com.htc.chaina.videos</item>
+        <item>com.duomi.android</item>
+        <item>com.sds.android.ttpod</item>
+        <item>com.changba</item>
+        <item>com.htc.fm</item>
+        <item>com.douban.radio</item>
+        <item>com.sec.android.app.music</item>
+    </array>
+</resources>

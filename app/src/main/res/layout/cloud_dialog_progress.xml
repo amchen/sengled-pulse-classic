@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#cc000000"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:layout_centerHorizontal="true"
+        style="@style/MyProgressBar"/>
+    <com.sengled.cloud.ui.view.ThTextView
+        android:textSize="13sp"
+        android:textColor="@color/golden"
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="请稍后..."
+        android:layout_below="@+id/pb"
+        android:layout_centerHorizontal="true"/>
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_below="@+id/tv"/>
+</RelativeLayout>

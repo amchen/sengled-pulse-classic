@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.Window
 import com.sengled.stspeaker.R
+import com.sengled.stspeaker.update.InAppUpdateHelper
 
 /**
  * Splash screen, ported from the original
@@ -26,6 +27,7 @@ class LogoActivity : Activity() {
 
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var sp: SharedPreferences
+    private var hasProceeded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +39,35 @@ class LogoActivity : Activity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         sp = getSharedPreferences(PREFS_FIRST_START, MODE_PRIVATE)
         setContentView(R.layout.activity_logo)
+
+        // Check for Google Play In-App Updates on startup
+        InAppUpdateHelper.checkForAppUpdate(
+            activity = this,
+            onNoUpdateCallback = {
+                proceedToNext()
+            }
+        )
     }
 
     override fun onResume() {
         super.onResume()
+        InAppUpdateHelper.resumeUpdateIfNeeded(this)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == InAppUpdateHelper.REQUEST_CODE_UPDATE) {
+            if (resultCode != RESULT_OK) {
+                // If update was cancelled or failed, continue normal launch flow
+                proceedToNext()
+            }
+        }
+    }
+
+    private fun proceedToNext() {
+        if (hasProceeded || isFinishing || isDestroyed) return
+        hasProceeded = true
         handler.postDelayed({
             if (sp.getBoolean(KEY_IS_FIRST_START, true)) {
                 startActivity(Intent(this, SengledTipsActivity::class.java))

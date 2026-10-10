@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.sengled.stspeaker.R
 import com.sengled.stspeaker.service.PulseService
+import com.sengled.stspeaker.update.InAppUpdateHelper
 
 /**
  * Searching / auto-connect screen, ported from the original
@@ -64,6 +65,11 @@ class SearchAndConnectActivity : Activity() {
         if (ensurePermissions()) {
             ensureBtEnabledAndScan()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        InAppUpdateHelper.resumeUpdateIfNeeded(this)
     }
 
     // ---- permissions ----

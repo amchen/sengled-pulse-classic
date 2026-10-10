@@ -69,7 +69,6 @@
 			android:id="@+id/soundCountLinear"
 			android:layout_width="120dp"
 			android:layout_height="120dp"
-			android:layout_below="@+id/title_container"
 			android:layout_marginLeft="10dp"
 			android:layout_marginTop="10dp"
 			android:background="@color/transparent">

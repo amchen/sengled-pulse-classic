@@ -93,7 +93,7 @@
     <string name="commution_title">Connexion impossible ampoules Pulse</string>
     <string name="content">Une nouvelle version de Pulse est disponible. Veuillez mettre à jour à la version %1$s</string>
     <string name="control_pannel">Pulse</string>
-    <string name="copyright">© 2017 Sengled, Incorporated. Tous droits réservés.</string>
+
     <string name="delete_device_item">Supprimer cette ampoule Satellite?</string>
     <string name="delete_failed_info">Veuillez vérifier que cette ampoule Satellite est allumée et qu\'elle est associée à l\'ampoule Master.</string>
     <string name="delete_failed_title">La suppression a échoué</string>
@@ -242,7 +242,7 @@
     <string name="version_info">Version</string>
     <string name="version_num">Version:%1$s</string>
     <string name="volume">VOLUME</string>
-    <string name="web_info">Visitez le site Sengled</string>
+    <string name="web_info">Visitez le site Github</string>
     <string name="web_launch">Ouvrir</string>
     <string name="webview_sorry">The page you were looking for could not be found.</string>
     <string name="welcome_0">Les ampoules Pulse utilisent la technologie Bluetooth. Veuillez procéder comme suit pour garantir l’installation.</string>

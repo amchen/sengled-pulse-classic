@@ -93,7 +93,7 @@
     <string name="commution_title">스마트 조명에 연결할 수 없습니다.</string>
     <string name="content">새 버전 있습니다. 버전 %1$s으로 업데이트를 하십시오.</string>
     <string name="control_pannel">Pulse</string>
-    <string name="copyright">© 2017 Sengled Incorporated. All rights reserved.</string>
+
     <string name="delete_device_item">해당 Satellite 조명을 삭제하시겠습니까?</string>
     <string name="delete_failed_info">Sateliite 조명의 전원이 켜져 있고 Master 조명에 연결되어 있는지 확인하십시오.</string>
     <string name="delete_failed_title">삭제 실패</string>

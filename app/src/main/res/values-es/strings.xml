@@ -93,7 +93,7 @@
     <string name="commution_title">Conexión con bombillas Pulse imposible</string>
     <string name="content">Hay una nueva versión de Pulse disponible. Por favor, actualice a la versión %1$s</string>
     <string name="control_pannel">Pulse</string>
-    <string name="copyright">© 2017 Sengled, Incorporated. Todos los derechos reservados.</string>
+
     <string name="delete_device_item">¿Desea borrar esta bombilla Satellite?</string>
     <string name="delete_failed_info">Por favor, asegúrese de que la bombilla Satellite está ENCENDIDA y que la comunicación con la bombilla Master es correcta.</string>
     <string name="delete_failed_title">No se ha podido borrar</string>
@@ -242,7 +242,7 @@
     <string name="version_info">Versión</string>
     <string name="version_num">Versión:%1$s</string>
     <string name="volume">VOLUMEN</string>
-    <string name="web_info">Visitar web de Sengled</string>
+    <string name="web_info">Visitar web de Github</string>
     <string name="web_launch">Abrir</string>
     <string name="webview_sorry">The page you were looking for could not be found.</string>
     <string name="welcome_0">Las bombillas Pulse emplean tecnología Bluetooth. Por favor, siga las siguientes indicaciones para realizar la instalación con éxito.</string>

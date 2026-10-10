@@ -93,7 +93,7 @@
     <string name="commution_title">Cannot connect to the Pulse bulbs</string>
     <string name="content">Eine neue Version von Pulse ist verfügbar. Bitte aktualisieren Sie auf die Version %1$s</string>
     <string name="control_pannel">Pulse</string>
-    <string name="copyright">© 2017 Sengled, Incorporated. Alle Rechte vorbehalten.</string>
+
     <string name="delete_device_item">Diese Satellitenlampe wirklich aus der Liste entfernen?</string>
     <string name="delete_failed_info">Bitte stellen Sie sicher, dass die Satellitenlampe angeschaltet und eine Kommunikation mit der Masterlampe möglich ist.</string>
     <string name="delete_failed_title">Löschen fehlgeschlagen</string>
@@ -242,7 +242,7 @@
     <string name="version_info">Version</string>
     <string name="version_num">Version:%1$s</string>
     <string name="volume">LAUTSTÄRKE</string>
-    <string name="web_info">Internetseiten von Sengled besuchen</string>
+    <string name="web_info">Internetseiten von Github besuchen</string>
     <string name="web_launch">Öffnen</string>
     <string name="webview_sorry">The page you were looking for could not be found.</string>
     <string name="welcome_0">Pulse bulbs use Bluetooth technology. Please follow these steps to ensure proper installation.</string>

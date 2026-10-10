@@ -92,7 +92,7 @@
     <string name="commution_title">无法连接Pulse设备</string>
     <string name="content">检测到一个新的Pulse版本，是否升级到%1$s版本？</string>
     <string name="control_pannel">Pulse</string>
-    <string name="copyright">© 2017 生迪公司，版权所有</string>
+
     <string name="delete_device_item">您确定要删除此从灯吗?</string>
     <string name="delete_failed_info">请确认这个从灯与主灯的连接是否处于正常状态。</string>
     <string name="delete_failed_title">删除失败</string>

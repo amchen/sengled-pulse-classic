@@ -60,7 +60,7 @@ class SettingVersionActivity : Activity() {
 
         rtWeb = findViewById(R.id.rt_web)
         rtWeb.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://www.sengled.com"))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/amchen/sengled-pulse-classic"))
             startActivity(intent)
         }
 

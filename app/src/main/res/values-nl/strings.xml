@@ -93,7 +93,7 @@
     <string name="commution_title">Pulse-lampen niet gevonden</string>
     <string name="content">Er is een nieuwe versie van Pulse beschikbaar. Werk de app bij naar versie %1$s</string>
     <string name="control_pannel">Pulse</string>
-    <string name="copyright">© 2017 Sengled, Incorporated. Alle rechten voorbehouden.</string>
+
     <string name="delete_device_item">Wilt u deze Satellite-lamp verwijderen?</string>
     <string name="delete_failed_info">Controleer of de Satellite-lamp AAN staat en of de communicatie met de Master-lamp in orde is.</string>
     <string name="delete_failed_title">Verwijderen mislukt</string>
@@ -242,7 +242,7 @@
     <string name="version_info">Versie</string>
     <string name="version_num">Versie:%1$s</string>
     <string name="volume">VOLUME</string>
-    <string name="web_info">Naar Sengled-website</string>
+    <string name="web_info">Naar Github website</string>
     <string name="web_launch">Openen</string>
     <string name="webview_sorry">The page you were looking for could not be found.</string>
     <string name="welcome_0">Pulse-lampen maken gebruik van Bluetooth-technologie. Doorloop de volgende stappen voor een correcte installatie.</string>

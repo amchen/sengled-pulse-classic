@@ -4,7 +4,7 @@ A custom Android app to connect to and control your **Sengled Pulse master bulb*
 (the LED + speaker bulb) over Bluetooth — no longer dependent on the old,
 unmaintained official Sengled Pulse app.
 
-**v2 update:** The bulb's real control protocol was recovered by decompiling the
+**2026 update:** The bulb's real control protocol was recovered by decompiling the
 official Sengled Pulse app (`com.sengled.stspeaker`). Light and speaker commands
 are now baked in — no discovery step needed.
 

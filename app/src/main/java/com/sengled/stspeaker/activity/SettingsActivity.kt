@@ -14,6 +14,7 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import com.sengled.pulsea66.view.SwitchView
 import com.sengled.stspeaker.R
+import com.sengled.stspeaker.config.MenuConfig
 import com.sengled.stspeaker.service.PulseService
 import com.sengled.stspeaker.widget.SettingsMenuPopupWindow
 
@@ -35,6 +36,8 @@ class SettingsActivity : Activity(), View.OnClickListener {
     private lateinit var welcomeSv: SwitchView
     private lateinit var autoSv: SwitchView
     private lateinit var memorySv: SwitchView
+    private lateinit var devicesMgmtSv: SwitchView
+    private lateinit var mediaAppsSv: SwitchView
     private lateinit var updateNumView: TextView
     private lateinit var linkTypeTv: TextView
     private lateinit var prefs: SharedPreferences
@@ -58,6 +61,8 @@ class SettingsActivity : Activity(), View.OnClickListener {
         welcomeSv = findViewById(R.id.welcome_sv)
         autoSv = findViewById(R.id.auto_sv)
         memorySv = findViewById(R.id.memory_sv)
+        devicesMgmtSv = findViewById(R.id.devices_mgmt_sv)
+        mediaAppsSv = findViewById(R.id.media_apps_sv)
         updateNumView = findViewById(R.id.tv_number)
         linkTypeTv = findViewById(R.id.tv_link_type)
         findViewById<View>(R.id.check_update_ln).setOnClickListener(this)
@@ -83,9 +88,23 @@ class SettingsActivity : Activity(), View.OnClickListener {
                 PulseService.getNodeInfo(0)?.rememberOn = open
             }
         })
+        devicesMgmtSv.setSwitchStatus(MenuConfig.isDevicesManagementEnabled(this))
+        devicesMgmtSv.setOnSwitchChangeListener(object : SwitchView.OnSwitchChangeListener {
+            override fun onSwitchChanged(open: Boolean) {
+                MenuConfig.setDevicesManagementEnabled(this@SettingsActivity, open)
+            }
+        })
+        mediaAppsSv.setSwitchStatus(MenuConfig.isLaunchMediaAppsEnabled(this))
+        mediaAppsSv.setOnSwitchChangeListener(object : SwitchView.OnSwitchChangeListener {
+            override fun onSwitchChanged(open: Boolean) {
+                MenuConfig.setLaunchMediaAppsEnabled(this@SettingsActivity, open)
+            }
+        })
         if (isFromRetrySearch) {
             findViewById<View>(R.id.welcome_ln).visibility = View.GONE
             findViewById<View>(R.id.memory_ln).visibility = View.GONE
+            findViewById<View>(R.id.devices_mgmt_ln).visibility = View.GONE
+            findViewById<View>(R.id.media_apps_ln).visibility = View.GONE
             btnMenu.visibility = View.INVISIBLE
         }
         // Audio-box-only rows are hidden in this build.

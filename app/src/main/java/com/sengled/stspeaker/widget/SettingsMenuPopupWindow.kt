@@ -18,6 +18,7 @@ import com.sengled.stspeaker.activity.SettingPlayerActivity
 import com.sengled.stspeaker.activity.SettingVersionActivity
 import com.sengled.stspeaker.activity.SettingsActivity
 import com.sengled.stspeaker.activity.SoundControlPannelActivity
+import com.sengled.stspeaker.config.MenuConfig
 import com.sengled.stspeaker.service.PulseService
 
 /**
@@ -47,9 +48,13 @@ class SettingsMenuPopupWindow(
         mMenuView.findViewById<View>(R.id.pop_choose_advice_item).setOnClickListener(this)
         val ucenter = mMenuView.findViewById<View>(R.id.pop_ucenter_item)
         ucenter.visibility = View.GONE // user center is a cloud feature, not in this build
-        if (PulseService.isSingleLight()) {
-            mMenuView.findViewById<View>(R.id.pop_play_item).visibility = View.GONE
-            mMenuView.findViewById<View>(R.id.pop_editname_item).visibility = View.GONE
+        val editNameItem = mMenuView.findViewById<View>(R.id.pop_editname_item)
+        val playItem = mMenuView.findViewById<View>(R.id.pop_play_item)
+        if (!MenuConfig.isDevicesManagementEnabled(mContext) || PulseService.isSingleLight()) {
+            editNameItem.visibility = View.GONE
+        }
+        if (!MenuConfig.isLaunchMediaAppsEnabled(mContext) || PulseService.isSingleLight()) {
+            playItem.visibility = View.GONE
         }
         mMenuView.findViewById<View>(R.id.bt_cancle).setOnClickListener { dismiss() }
         for (i in 1..7) {

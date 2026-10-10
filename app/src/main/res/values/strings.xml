@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="a66_brightness">BRIGHTNESS</string>
     <string name="a66_off">Off</string>
     <string name="a66_volume">VOLUME</string>
@@ -102,6 +102,8 @@
     <string name="delete_failed_title">Delete failed</string>
     <string name="delete_waiting">Deleting Satellite…</string>
     <string name="devices_management">Devices Management</string>
+    <string name="show_devices_management" tools:ignore="MissingTranslation">Show Devices Management</string>
+    <string name="show_launch_media_apps" tools:ignore="MissingTranslation">Show Launch Media Apps</string>
     <string name="dongle">Pulse Amp</string>
     <string name="eamil_regist">The email address has been registered.</string>
     <string name="edit">Edit</string>

@@ -135,6 +135,64 @@
     <LinearLayout
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:id="@+id/devices_mgmt_ln"
+        android:background="@drawable/a66_list_item_full"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.sengled.pulsea66.view.ThTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_devices_management"
+                android:singleLine="true"
+                style="@style/SettingTextView"/>
+        </LinearLayout>
+        <com.sengled.pulsea66.view.SwitchView
+            android:id="@+id/devices_mgmt_sv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/media_apps_ln"
+        android:background="@drawable/a66_list_item_full"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="20dp">
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <com.sengled.pulsea66.view.ThTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/show_launch_media_apps"
+                android:singleLine="true"
+                style="@style/SettingTextView"/>
+        </LinearLayout>
+        <com.sengled.pulsea66.view.SwitchView
+            android:id="@+id/media_apps_sv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:id="@+id/link_type_ln"
         android:background="@drawable/a66_list_item_full"
         android:padding="10dp"

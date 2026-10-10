@@ -232,47 +232,4 @@
             android:layout_height="wrap_content"
             android:src="@drawable/next_arrow"/>
     </LinearLayout>
-    <LinearLayout
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:id="@+id/check_update_ln"
-        android:background="@drawable/a66_list_item_full"
-        android:padding="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginRight="20dp">
-        <LinearLayout
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <com.sengled.pulsea66.view.ThTextView
-                android:gravity="center"
-                android:background="@drawable/a66_list_item_top"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/check_update"
-                android:singleLine="true"
-                style="@style/SettingTextView"/>
-        </LinearLayout>
-        <com.sengled.cloud.ui.view.ThTextView
-            android:textSize="@dimen/content_size"
-            android:textColor="@android:color/white"
-            android:gravity="center"
-            android:id="@+id/tv_number"
-            android:background="@drawable/a66_setting_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="17dp"
-            android:text="0"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/next_arrow"/>
-    </LinearLayout>
 </LinearLayout>

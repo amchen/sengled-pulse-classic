@@ -86,7 +86,6 @@
     <string name="channel_L">L</string>
     <string name="channel_LR">L+R</string>
     <string name="channel_R">R</string>
-    <string name="check_update">Vérif. mises à jour</string>
     <string name="choose_device">Select Pulse Solo</string>
     <string name="commution_err1">Vérifiez que vous êtes appairé aux ampoules Pulse.Vérifiez que personne d\'autre n\'est connecté.</string>
     <string name="commution_err2">Si un autre utilisateur est appairé aux ampoules Pulse, vous ne pourrez pas vous connecter.</string>

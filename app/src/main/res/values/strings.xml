@@ -89,7 +89,6 @@
     <string name="channel_L">L</string>
     <string name="channel_LR">L+R</string>
     <string name="channel_R">R</string>
-    <string name="check_update">Check Update</string>
     <string name="choose_device">Select Pulse Solo</string>
     <string name="commution_err1">Make sure that you are paired with the Pulse bulbs.</string>
     <string name="commution_err2">Make sure that no one else is connected. If another user is paired with Pulse bulbs, then you will not be able to connect.</string>

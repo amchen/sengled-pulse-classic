@@ -38,7 +38,6 @@ class SettingsActivity : Activity(), View.OnClickListener {
     private lateinit var memorySv: SwitchView
     private lateinit var devicesMgmtSv: SwitchView
     private lateinit var mediaAppsSv: SwitchView
-    private lateinit var updateNumView: TextView
     private lateinit var linkTypeTv: TextView
     private lateinit var prefs: SharedPreferences
     private var menuWindow: SettingsMenuPopupWindow? = null
@@ -63,9 +62,7 @@ class SettingsActivity : Activity(), View.OnClickListener {
         memorySv = findViewById(R.id.memory_sv)
         devicesMgmtSv = findViewById(R.id.devices_mgmt_sv)
         mediaAppsSv = findViewById(R.id.media_apps_sv)
-        updateNumView = findViewById(R.id.tv_number)
         linkTypeTv = findViewById(R.id.tv_link_type)
-        findViewById<View>(R.id.check_update_ln).setOnClickListener(this)
         btnMenu = findViewById(R.id.settings_back)
         btnMenu.setOnClickListener(this)
         btnMenu.setImageResource(R.drawable.btn_menu_normal)
@@ -109,8 +106,6 @@ class SettingsActivity : Activity(), View.OnClickListener {
         }
         // Audio-box-only rows are hidden in this build.
         findViewById<View>(R.id.link_type_ln).visibility = View.GONE
-        // No firmware-update backend in this build.
-        updateNumView.visibility = View.GONE
     }
 
     private fun refreshMemoryRow() {
@@ -160,9 +155,6 @@ class SettingsActivity : Activity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.check_update_ln -> {
-                // No update backend in this build; row kept for UI parity.
-            }
             R.id.link_type_ln -> {
                 startActivityForResult(
                     Intent(this, AudioInputSwitchActivity::class.java), AUDIO_REQUEST_CODE

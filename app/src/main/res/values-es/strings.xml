@@ -86,7 +86,6 @@
     <string name="channel_L">L</string>
     <string name="channel_LR">L+R</string>
     <string name="channel_R">R</string>
-    <string name="check_update">Buscar actualizaciones</string>
     <string name="choose_device">Select Pulse Solo</string>
     <string name="commution_err1">Asegúrese de que está vinculado con las bombillas Pulse.Compruebe que nadie más esté conectado.</string>
     <string name="commution_err2">Si hay otro usuario vinculado con las bombillas Pulse, no podrá establecer la conexión.</string>

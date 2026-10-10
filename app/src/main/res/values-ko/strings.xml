@@ -86,7 +86,6 @@
     <string name="channel_L">L</string>
     <string name="channel_LR">L+R</string>
     <string name="channel_R">R</string>
-    <string name="check_update">업데이트 확인</string>
     <string name="choose_device">바이올린 선택</string>
     <string name="commution_err1">스마트 조명이 페어링 되어있는지 확인하십시오.</string>
     <string name="commution_err2">다른 사용자가 연결되어 있지 않은지 확인하십시오. 다른 사용자가 스마트 조명과 페어링 되어 있으면 연결을 할 수 없습니다.</string>

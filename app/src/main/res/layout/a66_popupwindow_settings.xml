@@ -81,18 +81,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 style="@style/SettingTextView"/>
-            <com.sengled.cloud.ui.view.ThTextView
-                android:textSize="@dimen/content_size"
-                android:textColor="@android:color/white"
-                android:gravity="center"
-                android:id="@+id/tv_number"
-                android:background="@drawable/a66_setting_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="17dp"
-                android:text="0"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"/>
         </RelativeLayout>
         <RelativeLayout
             android:orientation="horizontal"

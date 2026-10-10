@@ -86,7 +86,6 @@
     <string name="channel_L">L</string>
     <string name="channel_LR">L+R</string>
     <string name="channel_R">R</string>
-    <string name="check_update">Controleren op updates</string>
     <string name="choose_device">Select Pulse Solo</string>
     <string name="commution_err1">Controleer of de Pulse-lampen gekoppeld zijn.Zorg dat er geen andere gebruikers zijn verbonden.</string>
     <string name="commution_err2">Als een andere gebruiker is gekoppeld aan de Pulse-lampen, kunt u geen verbinding maken.</string>

@@ -35,7 +35,6 @@ class SettingsMenuPopupWindow(
     private val mMenuView: View =
         (mContext.getSystemService("layout_inflater") as LayoutInflater)
             .inflate(R.layout.popupwindow_settings, null)
-    private val mUpdateNumView: TextView = mMenuView.findViewById(R.id.tv_number)
 
     init {
         mMenuView.findViewById<View>(R.id.pop_main_item).setOnClickListener(this)
@@ -142,7 +141,6 @@ class SettingsMenuPopupWindow(
 
     override fun showAsDropDown(anchor: View) {
         if (this.anchor == null) this.anchor = ImageView(mContext)
-        mUpdateNumView.visibility = View.GONE // no firmware-update backend in this build
         super.showAsDropDown(this.anchor, 0, statusBarHeight)
     }
 

@@ -20,4 +20,4 @@ gradle-app.setting
 
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
-/keystore/release-key.jks
+keystore

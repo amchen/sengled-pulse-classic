@@ -1108,6 +1108,7 @@
     <style name="FullscreenTheme" parent="@android:style/Theme.NoTitleBar">
         <item name="android:windowBackground">@null</item>
         <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
     <style name="FullviewText" parent="">
         <item name="android:textSize">20sp</item>

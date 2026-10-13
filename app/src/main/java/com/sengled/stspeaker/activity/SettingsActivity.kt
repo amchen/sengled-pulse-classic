@@ -1,6 +1,5 @@
 package com.sengled.stspeaker.activity
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,9 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.Window
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
+import androidx.activity.ComponentActivity
+import androidx.activity.result.contract.ActivityResultContracts
 import com.sengled.pulsea66.view.SwitchView
 import com.sengled.stspeaker.R
 import com.sengled.stspeaker.config.MenuConfig
@@ -26,11 +26,7 @@ import com.sengled.stspeaker.widget.SettingsMenuPopupWindow
  * The memory switch sends the official management configuration command
  * (subsys 0 / cmd 11, item 0) via PulseService.setLampRemember().
  */
-class SettingsActivity : Activity(), View.OnClickListener {
-
-    companion object {
-        private const val AUDIO_REQUEST_CODE = 16
-    }
+class SettingsActivity : ComponentActivity(), View.OnClickListener {
 
     private lateinit var btnMenu: ImageView
     private lateinit var welcomeSv: SwitchView
@@ -42,6 +38,19 @@ class SettingsActivity : Activity(), View.OnClickListener {
     private lateinit var prefs: SharedPreferences
     private var menuWindow: SettingsMenuPopupWindow? = null
     private var isFromRetrySearch = false
+
+    private val audioSwitchLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val data = result.data
+            if (data?.hasExtra(AudioInputSwitchActivity.EXTRA_AUDIO_SOURCE) == true) {
+                val num = data.getIntExtra(AudioInputSwitchActivity.EXTRA_AUDIO_SOURCE, -1)
+                showSourceSwitchText(num)
+                PulseService.audioSourceSwitchNum = num
+            }
+        }
+    }
 
     private val stateListener: () -> Unit = { refreshMemoryRow() }
 
@@ -156,9 +165,7 @@ class SettingsActivity : Activity(), View.OnClickListener {
     override fun onClick(v: View) {
         when (v.id) {
             R.id.link_type_ln -> {
-                startActivityForResult(
-                    Intent(this, AudioInputSwitchActivity::class.java), AUDIO_REQUEST_CODE
-                )
+                audioSwitchLauncher.launch(Intent(this, AudioInputSwitchActivity::class.java))
             }
             else -> if (v == btnMenu) {
                 menuWindow = SettingsMenuPopupWindow(this, 7)
@@ -168,18 +175,6 @@ class SettingsActivity : Activity(), View.OnClickListener {
                 })
             }
         }
-    }
-
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == AUDIO_REQUEST_CODE && resultCode == RESULT_OK &&
-            data?.hasExtra(AudioInputSwitchActivity.EXTRA_AUDIO_SOURCE) == true
-        ) {
-            val num = data.getIntExtra(AudioInputSwitchActivity.EXTRA_AUDIO_SOURCE, -1)
-            showSourceSwitchText(num)
-            PulseService.audioSourceSwitchNum = num
-        }
-        super.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun onDestroy() {

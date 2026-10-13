@@ -11,6 +11,7 @@ import android.content.IntentFilter
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import androidx.core.content.IntentCompat
 import com.sengled.stspeaker.NodeInfo
 import com.sengled.stspeaker.protocol.PulseCommands
 import com.sengled.stspeaker.protocol.PulseFrame
@@ -68,8 +69,9 @@ object PulseService {
     fun bondedMasters(context: Context? = null): List<BluetoothDevice> {
         return try {
             val adapter = if (context != null) {
-                context.getSystemService(BluetoothManager::class.java)?.adapter
+                (context.getSystemService(Context.BLUETOOTH_SERVICE) as? BluetoothManager)?.adapter
             } else {
+                @Suppress("DEPRECATION")
                 BluetoothAdapter.getDefaultAdapter()
             } ?: return emptyList()
             val bonded = adapter.bondedDevices?.toList() ?: emptyList()
@@ -91,7 +93,7 @@ object PulseService {
         onDevice: (BluetoothDevice) -> Unit,
         onDone: () -> Unit
     ): BroadcastReceiver {
-        val bluetoothManager = context.getSystemService(BluetoothManager::class.java)
+        val bluetoothManager = context.getSystemService(Context.BLUETOOTH_SERVICE) as? BluetoothManager
         val adapter = bluetoothManager?.adapter
         val seen = mutableSetOf<String>()
         val receiver = object : BroadcastReceiver() {
@@ -99,7 +101,7 @@ object PulseService {
                 when (intent.action) {
                     BluetoothDevice.ACTION_FOUND -> {
                         val dev: BluetoothDevice? =
-                            intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE)
+                            IntentCompat.getParcelableExtra(intent, BluetoothDevice.EXTRA_DEVICE, BluetoothDevice::class.java)
                         if (dev != null && dev.address !in seen && isMasterDevice(dev)) {
                             seen.add(dev.address)
                             onDevice(dev)

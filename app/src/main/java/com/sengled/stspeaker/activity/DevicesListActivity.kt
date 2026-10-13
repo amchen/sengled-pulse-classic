@@ -15,6 +15,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
+import androidx.core.content.IntentCompat
 import com.sengled.stspeaker.R
 import com.sengled.stspeaker.service.PulseService
 
@@ -43,9 +44,12 @@ class DevicesListActivity : Activity() {
         currentDeviceName = findViewById(R.id.currentdevice_name)
         devicesList = findViewById(R.id.list_devices)
 
-        @Suppress("DEPRECATION")
         val initial: ArrayList<BluetoothDevice>? =
-            intent.getParcelableArrayListExtra(SearchAndConnectActivity.EXTRA_DEVICES)
+            IntentCompat.getParcelableArrayListExtra(
+                intent,
+                SearchAndConnectActivity.EXTRA_DEVICES,
+                BluetoothDevice::class.java
+            )
         initial?.forEach { addDevice(it) }
         try {
             PulseService.bondedMasters(this).forEach { addDevice(it) }

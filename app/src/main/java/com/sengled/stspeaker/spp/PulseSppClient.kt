@@ -48,6 +48,7 @@ class PulseSppClient {
         disconnect()
         Thread({
             try {
+                @Suppress("DEPRECATION")
                 BluetoothAdapter.getDefaultAdapter()?.cancelDiscovery()
             } catch (_: Exception) { }
             log("Connecting SPP to ${device.name} (${device.address}) ...")

@@ -1,7 +1,5 @@
 package com.sengled.stspeaker.activity
 
-import android.app.Activity
-import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -10,6 +8,9 @@ import android.os.Message
 import android.view.View
 import android.view.Window
 import android.widget.ImageView
+import android.widget.ProgressBar
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.sengled.stspeaker.R
 import com.sengled.stspeaker.service.PulseService
 
@@ -21,7 +22,7 @@ import com.sengled.stspeaker.service.PulseService
  * Sends the official audio-source command (subsys 4 / cmd 6):
  * 0 = 3.5 mm AUX, 1 = Bluetooth A2DP.
  */
-class AudioInputSwitchActivity : Activity(), View.OnClickListener {
+class AudioInputSwitchActivity : AppCompatActivity(), View.OnClickListener {
 
     companion object {
         const val EXTRA_AUDIO_SOURCE = "audioSourceSwitchNum"
@@ -33,7 +34,7 @@ class AudioInputSwitchActivity : Activity(), View.OnClickListener {
     private var audioSourceSwitchNum = -1
     private lateinit var lineinIcon: ImageView
     private lateinit var btIcon: ImageView
-    private var progressDialog: ProgressDialog? = null
+    private var progressDialog: AlertDialog? = null
 
     private val handler = object : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
@@ -61,7 +62,7 @@ class AudioInputSwitchActivity : Activity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_audio_input_switch)
         initView()
         initData()
@@ -72,7 +73,9 @@ class AudioInputSwitchActivity : Activity(), View.OnClickListener {
         btIcon = findViewById(R.id.bt_icon)
         findViewById<View>(R.id.link_type_ln).setOnClickListener(this)
         findViewById<View>(R.id.bt_type_ln).setOnClickListener(this)
-        findViewById<View>(R.id.btn_menu).setOnClickListener { onBackPressed() }
+        findViewById<View>(R.id.btn_menu).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
     }
 
     private fun initData() {
@@ -98,21 +101,26 @@ class AudioInputSwitchActivity : Activity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        progressDialog = ProgressDialog(this).apply {
-            setCancelable(false)
-            setCanceledOnTouchOutside(false)
-            show()
-        }
+        progressDialog = AlertDialog.Builder(this)
+            .setView(ProgressBar(this).apply { isIndeterminate = true })
+            .setCancelable(false)
+            .show()
         val message = Message.obtain()
         message.obj = v
         handler.sendMessageDelayed(message, 1000)
     }
 
-    override fun onBackPressed() {
-        val intent = intent
+    private fun finishWithResult() {
+        val intent = Intent()
         intent.putExtra(EXTRA_AUDIO_SOURCE, audioSourceSwitchNum)
         setResult(RESULT_OK, intent)
         finish()
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onBackPressed() {
+        finishWithResult()
+        super.onBackPressed()
     }
 
     override fun onDestroy() {

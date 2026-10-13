@@ -278,6 +278,7 @@ class SoundControlPannelActivity : Activity() {
         super.onDestroy()
     }
 
+    @Suppress("DEPRECATION")
     override fun onBackPressed() {
         speakerSer.shutdown()
         finishAffinity()

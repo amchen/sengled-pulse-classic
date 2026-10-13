@@ -4,7 +4,7 @@ A custom Android app to connect to and control your **Sengled Pulse master bulb*
 (the LED + speaker bulb) over Bluetooth — no longer dependent on the old,
 unmaintained official Sengled Pulse app.
 
-**v2 update:** the bulb's real control protocol was recovered by decompiling the
+**2026 update:** The bulb's real control protocol was recovered by decompiling the
 official Sengled Pulse app (`com.sengled.stspeaker`). Light and speaker commands
 are now baked in — no discovery step needed.
 
@@ -96,25 +96,8 @@ Notes: AGP 8.5.2 + Kotlin 1.9.24 are pinned in the build files, so Quail just
 uses them — no upgrade assistant needed. Bluetooth permissions are requested
 at runtime on first connect.
 
-## Project layout
-
-```
-app/src/main/java/com/example/pulse/
-├── MainActivity.kt        UI: connect, light, speaker, music, log
-├── protocol/
-│   ├── PulseFrame.kt      HDLC frame builder/parser + checksum
-│   └── PulseCommands.kt   Command set (table above) + response parsers
-├── spp/
-│   └── PulseSppClient.kt  RFCOMM/SPP socket + HDLC reader thread
-└── audio/
-    └── PulseAudio.kt      A2DP status, media volume, local playback
-```
-
 ## Notes & limits
 
 - Derived from the user's own copy of the free official app, for interoperability
   with hardware they own. Protocol details live in `protocol/` with source references.
-- If a command doesn't visibly work on your bulb, try the other **Command target**
-  (broadcast vs. master-only) and check the traffic log — the bulb always ACKs the
-  handshake, which confirms the link is alive.
 - Only the master bulb accepts SPP connections; satellites are driven by the master.
